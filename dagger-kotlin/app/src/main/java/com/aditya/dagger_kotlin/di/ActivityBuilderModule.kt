@@ -7,10 +7,6 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class ActivityBuilderModule {
 
-    @ContributesAndroidInjector(
-        modules = [
-            ViewModelModule::class
-        ]
-    )
+    @ContributesAndroidInjector(modules = [ViewModelModule::class])
     abstract fun contributeAuthActivity(): AuthActivity
 }

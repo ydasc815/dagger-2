@@ -1,4 +1,4 @@
-package com.aditya.dagger_kotlin.ui
+package com.aditya.dagger_kotlin.repositories
 
 class TestRepository {
     // This is a test class

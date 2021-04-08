@@ -18,9 +18,6 @@ import javax.inject.Inject
 
 class AuthActivity : DaggerAppCompatActivity() {
 
-    private lateinit var binding: ActivityAuthBinding
-    private lateinit var mViewModel: AuthViewModel
-
     @Inject
     lateinit var logo: Drawable
 
@@ -30,12 +27,14 @@ class AuthActivity : DaggerAppCompatActivity() {
     @Inject
     lateinit var viewModelFactory: ViewModelProvider.Factory
 
+    private lateinit var binding: ActivityAuthBinding
+    private lateinit var mViewModel: AuthViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
-        mViewModel = getViewModel()
         binding.lifecycleOwner = this
+        mViewModel = getViewModel()
         binding.btnLogin.setOnClickListener {
             toast(this, mViewModel.strVar)
             mViewModel.mutableLiveData.value = "This is a test string"
