@@ -33,17 +33,18 @@ class AuthActivity : DaggerAppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_auth)
-        binding.lifecycleOwner = this
-        mViewModel = getViewModel()
+        getViewModel()
         binding.btnLogin.setOnClickListener {
-            toast(this, mViewModel.strVar)
-            mViewModel.mutableLiveData.value = "This is a test string"
+            mViewModel.data.value = "This is the new value"
+            log(mViewModel.data.value.toString())
         }
         setLogo()
     }
 
-    private fun getViewModel(): AuthViewModel {
-        return ViewModelProviders.of(this, viewModelFactory).get(AuthViewModel::class.java)
+    private fun getViewModel() {
+        mViewModel = ViewModelProviders.of(this, viewModelFactory).get(AuthViewModel::class.java)
+        binding.viewModel = mViewModel
+        binding.lifecycleOwner = this
     }
 
     private fun setLogo() {

@@ -1,6 +1,7 @@
 package com.aditya.dagger_kotlin.ui
 
 import android.content.Context
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.aditya.dagger_kotlin.repositories.AuthRepository
@@ -12,8 +13,7 @@ class AuthViewModel @Inject constructor(
     context: Context, testRepository: TestRepository, authRepository: AuthRepository
 ): ViewModel() {
 
-    var strVar: String = "Test String"
-    var mutableLiveData: MutableLiveData<String> = MutableLiveData()
+    var data: MutableLiveData<String> = MutableLiveData("default value")
 
     init {
         log("context injected -> $context")
