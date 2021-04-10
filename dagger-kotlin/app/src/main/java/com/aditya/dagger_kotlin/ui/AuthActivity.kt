@@ -13,19 +13,17 @@ import com.aditya.dagger_kotlin.databinding.ActivityAuthBinding
 import com.aditya.dagger_kotlin.utils.log
 import com.aditya.dagger_kotlin.utils.toast
 import com.bumptech.glide.RequestManager
+import dagger.android.AndroidInjection
 import dagger.android.support.DaggerAppCompatActivity
 import javax.inject.Inject
 
-class AuthActivity : DaggerAppCompatActivity() {
+class AuthActivity : BaseActivity() {
 
     @Inject
     lateinit var logo: Drawable
 
     @Inject
     lateinit var requestManager: RequestManager
-
-    @Inject
-    lateinit var viewModelFactory: ViewModelProvider.Factory
 
     private lateinit var binding: ActivityAuthBinding
     private lateinit var mViewModel: AuthViewModel
